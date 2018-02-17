@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <a href="{{ path("create") }}">Create new record</a>
+    <form action="{{ path("search") }}">
+        <input type="search" name="q" placeholder="Найти статью по имени">
+        <input type="submit" value="Найти">
+    </form>
+
+    {% for article in articles %}
+        <table style="border-color: #222222" border="1">
+            <td width="100">
+                {{ article.name }}
+            </td>
+            <td width="100">
+                {{ article.description }}
+            </td>
+            <td>
+                {{ article.createdAt|date('Y-m-d H:i') }}
+            </td>
+            <td align="center" width="50">
+                <a href="{{ path("delete", {"id": article.id}) }}">Delete</a>
+            </td>
+            <td align="center" width="50">
+                <a href="{{ path ("edit", {"id": article.id}) }}">Edit</a><br>
+            </td>
+
+        </table>
+    {% endfor %}
+
+{% endblock
