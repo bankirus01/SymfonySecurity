@@ -1,6 +1,8 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    <a href="{{ path("homepage") }}">Back to main page</a>
+    <br>
     <a href="{{ path("create") }}">Create new record</a>
     <form action="{{ path("search") }}">
         <input type="search" name="q" placeholder="Найти статью по имени">
@@ -28,4 +30,5 @@
         </table>
     {% endfor %}
 
-{% endblock
+{% endblock%}
+
