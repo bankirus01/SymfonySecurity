@@ -22,7 +22,7 @@ class SecurityControllerTest extends WebTestCase
 
         $client->submit($form);
 
-        $this->assertEquals(302, $client->getResponse()->getStatusCode());
+        $this->assertEquals(200, $client->getResponse()->getStatusCode());
     }
 
     public function testLogin()
