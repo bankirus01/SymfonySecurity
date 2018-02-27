@@ -4,6 +4,13 @@ parameters:
     #parameter_name: value
 
 services:
+
+    app.event_listener.ip_trace_subscriber:
+            class: AppBundle\EventListener\SearchIndexerSubscriber
+            tags:
+                - { name: kernel.event_subscriber }
+            arguments: ['@twig', '@swiftmailer.mailer']
+
     # default configuration for services in *this* file
     _defaults:
         # automatically injects dependencies in your services
