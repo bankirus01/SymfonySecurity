@@ -5,8 +5,8 @@ parameters:
     database_name: Article
     database_user: root
     database_password: root
-    mailer_transport: smtp
-    mailer_host: 127.0.0.1
+    mailer_transport: gmail
+    mailer_host: smtp
     mailer_user: andysymf
     mailer_password: 1234bankirus01
     secret: ff328d0a39586d950958bb8dd9440fa5624574ed

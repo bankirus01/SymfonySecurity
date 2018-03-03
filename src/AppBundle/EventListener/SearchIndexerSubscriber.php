@@ -30,18 +30,18 @@ class SearchIndexerSubscriber implements EventSubscriberInterface
     public function index(GenericEvent $event)
     {
         $entity = $event->getSubject();
-        // var_dump($entity);
+        var_dump($entity);
         $message = new Swift_Message();
-        $message->setSubject('Data of employee ID ' . $entity->getId() . ' it is ' . $entity->getFirstName() . ' was changed');
+        $message->setSubject('Data of employee ID ' . $entity->getId() . ' it is ' . $entity->getName() . ' was changed');
         $message->setFrom('gmail@gmail.com');
         try {
             $message->setBody(
                 $this->templater->render(
                     'mail/employee.html.twig',
-                    array('firstName' => $entity->getFirstName(),
-                        'lastName' => $entity->getLastName(),
-                        'hireDate' => $entity->getHireDate(),
-                        'age' => $entity->getAge()
+                    array('Name' => $entity->getName(),
+                        'Description' => $entity->getDescription(),
+                        'CreatedAt' => $entity->getCreatedAt(),
+                        'Id' => $entity->getId()
                     )
                 ),
                 'text/html'
